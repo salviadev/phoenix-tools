@@ -17,7 +17,7 @@ gulp.task('clean', function () {
 
 gulp.task('definition-bundle', function () {
     dts.bundle({
-        name: 'phoenix-tools',
+        name: 'phoenix-utils',
         main: 'lib/definitions/index.d.ts',
         exclude: /.*typings.*/,
         verbose: false
