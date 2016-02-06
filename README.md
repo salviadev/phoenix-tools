@@ -1,8 +1,9 @@
-#JSON Schema Tools
+#Phoenix Tools
 
 This package contains:
 
-`indexesOfSchema` - extract from jsonschema the list of indexes
+
+`json.loadFromFile(fileName: string): Promise<any>` - load a json from file 
 
 
 
