@@ -2,11 +2,20 @@
 
 declare module 'phoenix-utils' {
     export { json } from 'phoenix-utils/lib/json';
+    export { http } from 'phoenix-utils/lib/http';
 }
 
 declare module 'phoenix-utils/lib/json' {
     export var json: {
         loadFromFile: (fileName: string) => Promise<any>;
+    };
+}
+
+declare module 'phoenix-utils/lib/http' {
+    export var http: {
+        noi: (req: any, message?: string) => void;
+        notfound: (req: any, message?: string) => void;
+        error: (req: any, message: string, status?: number) => void;
     };
 }
 
