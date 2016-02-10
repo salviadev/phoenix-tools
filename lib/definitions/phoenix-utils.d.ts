@@ -18,9 +18,9 @@ declare module 'phoenix-utils/lib/json' {
 
 declare module 'phoenix-utils/lib/http' {
     export var http: {
-        noi: (req: any, message?: string) => void;
-        notfound: (req: any, message?: string) => void;
-        error: (req: any, message: string, status?: number) => void;
+        noi: (res: any, message?: string) => void;
+        notfound: (res: any, message?: string) => void;
+        error: (res: any, message: string, status?: number) => void;
     };
 }
 
