@@ -33,6 +33,7 @@ declare module 'phoenix-utils/lib/utils' {
 declare module 'phoenix-utils/lib/odata' {
     export var odata: {
         queryResult: (payload: any[], count?: number) => any;
+        queryOptions: (query: any, options?: any) => any;
     };
 }
 
