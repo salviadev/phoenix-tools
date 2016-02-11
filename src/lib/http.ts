@@ -9,11 +9,15 @@ function noi(res: any, message?: string): void {
 }
 
 function nofound(res: any, message?: string): void {
-    res.status(501).json({ message: message || notFound });
+    res.status(400).json({ message: message || notFound });
 }
 
 function error(res: any, message: string, status?: number): void {
     res.status(status || 400).json({ message: message });
+}
+
+function exception(res: any, ex: any): void {
+    res.status(status || 500).json({ message: ex.message, stack: ex.stack });
 }
 
 export var http = {
