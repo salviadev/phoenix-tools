@@ -40,6 +40,7 @@ function _clone(src: any, recursive: boolean): any {
         return src;
 }
 
+
 export var utils = {
     clone: _clone
 }

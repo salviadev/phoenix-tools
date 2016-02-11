@@ -18,7 +18,9 @@ function error(res: any, message: string, status?: number): void {
 
 function exception(res: any, ex: any): void {
     console.log(ex);
-    res.status(status || 500).json({ message: ex.message, stack: ex.stack });
+    ex = ex || {};
+    ex.message =  ex.message ||  "Internal server error";
+    res.status(ex.status || 500).json({ message: ex.message, stack: ex.stack });
 }
 
 export var http = {
