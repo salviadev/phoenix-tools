@@ -17,11 +17,13 @@ function error(res: any, message: string, status?: number): void {
 }
 
 function exception(res: any, ex: any): void {
+    console.log(ex);
     res.status(status || 500).json({ message: ex.message, stack: ex.stack });
 }
 
 export var http = {
     noi: noi,
     notfound: nofound,
-    error: error
+    error: error,
+    exception: exception
 }
