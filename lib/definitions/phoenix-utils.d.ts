@@ -7,6 +7,7 @@ declare module 'phoenix-utils' {
     export { http } from 'phoenix-utils/lib/http';
     export { utils } from 'phoenix-utils/lib/utils';
     export { fs } from 'phoenix-utils/lib/fs';
+    export { date } from 'phoenix-utils/lib/date';
 }
 
 declare module 'phoenix-utils/lib/json' {
@@ -34,6 +35,13 @@ declare module 'phoenix-utils/lib/fs' {
     import * as fileSystem from 'fs';
     export var fs: {
         stat: (filePath: string, throwOnENOENT: boolean) => Promise<fileSystem.Stats>;
+    };
+}
+
+declare module 'phoenix-utils/lib/date' {
+    export var date: {
+        parseISODateAsUTC: (value: string) => Date;
+        parseISODate: (value: string) => Date;
     };
 }
 

@@ -7,3 +7,5 @@ var utils_1 = require('./lib/utils');
 exports.utils = utils_1.utils;
 var fs_1 = require('./lib/fs');
 exports.fs = fs_1.fs;
+var date_1 = require('./lib/date');
+exports.date = date_1.date;
