@@ -19,13 +19,23 @@ function error(res: any, message: string, status?: number): void {
 function exception(res: any, ex: any): void {
     console.log(ex);
     ex = ex || {};
-    ex.message =  ex.message ||  "Internal server error";
+    ex.message = ex.message || "Internal server error";
     res.status(ex.status || 500).json({ message: ex.message, stack: ex.stack });
+}
+
+export class HttpError extends Error {
+    public status: number;
+    constructor(message: string, status?: number) {
+        super(message);
+        this.status = status || 400;
+    }
+
 }
 
 export var http = {
     noi: noi,
     notfound: nofound,
     error: error,
-    exception: exception
+    exception: exception,
+    HttpError: HttpError
 }
