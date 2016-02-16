@@ -17,9 +17,11 @@ function error(res: any, message: string, status?: number): void {
 }
 
 function exception(res: any, ex: any): void {
+    if (typeof ex === "string")
+        ex = { message: ex };
     ex = ex || {};
     ex.message = ex.message || "Internal server error";
-    res.status(ex.status || 500).json({ message: ex.message, stack: ex.stack });
+    res.status(ex.status || 500).json({ message: ex.message, stack: ex.details || ex.stack });
 }
 
 export class HttpError extends Error {
@@ -31,9 +33,9 @@ export class HttpError extends Error {
     }
 
 }
-function _throwHttpError(ex: any, status: number, message? : string): void {
+function _throwHttpError(ex: any, status: number, message?: string): void {
     if (typeof ex === "string")
-        ex = {message: ex};
+        ex = { message: ex };
     ex = ex || {};
     ex.message = ex.message || message;
     let he = new HttpError(ex.message, status || 400);
