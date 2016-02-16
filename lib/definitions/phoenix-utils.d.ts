@@ -19,6 +19,7 @@ declare module 'phoenix-utils/lib/json' {
 declare module 'phoenix-utils/lib/http' {
     export class HttpError extends Error {
         status: number;
+        details: any;
         constructor(message: string, status?: number);
     }
     export var http: {
@@ -27,6 +28,7 @@ declare module 'phoenix-utils/lib/http' {
         error: (res: any, message: string, status?: number) => void;
         exception: (res: any, ex: any) => void;
         HttpError: typeof HttpError;
+        throwHttpError: (ex: any, status: number, message?: string) => void;
     };
 }
 

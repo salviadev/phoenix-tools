@@ -1,5 +1,6 @@
 export declare class HttpError extends Error {
     status: number;
+    details: any;
     constructor(message: string, status?: number);
 }
 export declare var http: {
@@ -8,4 +9,5 @@ export declare var http: {
     error: (res: any, message: string, status?: number) => void;
     exception: (res: any, ex: any) => void;
     HttpError: typeof HttpError;
+    throwHttpError: (ex: any, status: number, message?: string) => void;
 };
