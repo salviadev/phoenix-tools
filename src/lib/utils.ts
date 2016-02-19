@@ -40,7 +40,19 @@ function _clone(src: any, recursive: boolean): any {
         return src;
 }
 
+function path2value(value: any, path: string) {
+   if (!path) return value;
+   let segments = path.split('.');
+   let v = value;
+   for(let segment of segments) {
+       if (v === undefined || v === null) return null;
+       if (typeof v !== 'object') return null;
+       v = v[segment];
+   }   
+   return v; 
+} 
 
 export var utils = {
-    clone: _clone
+    clone: _clone,
+    value: path2value
 }
