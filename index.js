@@ -9,3 +9,5 @@ var fs_1 = require('./lib/fs');
 exports.fs = fs_1.fs;
 var date_1 = require('./lib/date');
 exports.date = date_1.date;
+var multitenant_1 = require('./lib/multitenant');
+exports.multitenant = multitenant_1.multitenant;

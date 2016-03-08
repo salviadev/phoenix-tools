@@ -8,6 +8,7 @@ declare module 'phoenix-utils' {
     export { utils } from 'phoenix-utils/lib/utils';
     export { fs } from 'phoenix-utils/lib/fs';
     export { date } from 'phoenix-utils/lib/date';
+    export { multitenant } from 'phoenix-utils/lib/multitenant';
 }
 
 declare module 'phoenix-utils/lib/json' {
@@ -51,6 +52,25 @@ declare module 'phoenix-utils/lib/date' {
     export var date: {
         parseISODateAsUTC: (value: string) => Date;
         parseISODate: (value: string) => Date;
+    };
+}
+
+declare module 'phoenix-utils/lib/multitenant' {
+    export var Multitenant: {
+        DB: string;
+        SCHEMA: string;
+        SHARE: string;
+    };
+    export function schemaPrefix(tenantId: number, driver: string): string;
+    export function databaseName(tenantId: number, dbName: string, driver: string): string;
+    export function collectionName(tenantId: number, collectionName: string, driver: string): string;
+    export var multitenant: {
+        DB: string;
+        SCHEMA: string;
+        SHARE: string;
+        schemaPrefix: (tenantId: number, driver: string) => string;
+        databaseName: (tenantId: number, dbName: string, driver: string) => string;
+        collectionName: (tenantId: number, collectionName: string, driver: string) => string;
     };
 }
 
